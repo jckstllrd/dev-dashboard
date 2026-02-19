@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function DailyFocus() {
   const [dailyFocusValue, setDailyFocusValue] = useState('');
-  const [dailyFocus, setDailyFocus] = useState("Add Today's Daily Focus Here!");
+  const [dailyFocus, setDailyFocus] = useState(
+    () => localStorage.getItem('dailyFocus') ?? ''
+  );
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -10,6 +12,10 @@ export default function DailyFocus() {
     setDailyFocus(dailyFocusValue);
     setDailyFocusValue('');
   }
+
+  useEffect(() => {
+    localStorage.setItem('dailyFocus', dailyFocus);
+  }, [dailyFocus]);
 
   return (
     <>
