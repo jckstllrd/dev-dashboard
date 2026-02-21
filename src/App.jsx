@@ -5,11 +5,17 @@ import GitHubActivity from './components/GitHubActivity';
 
 function App() {
   return (
-    <>
-      <DailyFocus />
-      <PomodoroTimer />
-      <GitHubActivity />
-    </>
+    <div className="app-container">
+      <div className="dailyFocus">
+        <DailyFocus />
+      </div>
+      <div className="pomodoro">
+        <PomodoroTimer />
+      </div>
+      <div className="activity">
+        <GitHubActivity />
+      </div>
+    </div>
   );
 }
 
