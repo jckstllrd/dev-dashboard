@@ -11,17 +11,19 @@ export default function GitHubActivity() {
 
   useEffect(() => {
     fetch(url)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setActivity(result);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
+        return res.json();
+      })
+      .then((result) => {
+        setActivity(result);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => {
+        setIsLoaded(true);
+      });
   }, []);
 
   if (error) {
