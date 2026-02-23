@@ -39,11 +39,13 @@ export default function GitHubActivity() {
     return (
       <>
         <h1>Your Github Activity</h1>
-        <ul>
+        <ul className="commitActivityList">
           {activity.map((commit) => (
             <li key={commit.node_id}>
-              {commit.committer.login} -{' '}
-              <strong>"{commit.commit.message}"</strong>
+              <div className="commit-card">
+                {commit.committer.login} -{' '}
+                <strong>"{commit.commit.message}"</strong>
+              </div>
             </li>
           ))}
         </ul>

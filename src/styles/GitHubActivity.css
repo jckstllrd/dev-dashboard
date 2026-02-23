@@ -1,0 +1,34 @@
+@import url('./App.css');
+
+.activity {
+  display: flex;
+  font-size: var(--text-sm);
+  flex-direction: column;
+  min-height: 0;
+  align-items: center;
+}
+
+
+ul.commitActivityList {
+  flex:1;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  overflow-y: scroll;
+}
+
+.commitActivityList li {
+  list-style: none;
+  padding: 0;
+}
+
+.commit-card {
+  /* border: 1px solid; */
+  height: 80%;
+  border-left: 2px solid var(--color-bg);
+  padding: var(--space-sm);
+  font-size: var(--text-sm);
+  /* overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; */
+}
