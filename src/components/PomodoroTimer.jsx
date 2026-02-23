@@ -40,7 +40,7 @@ export default function PomodoroTimer() {
 
   return (
     <>
-      <h1>{secondsToHHMMSS(timer)}</h1>
+      <h2>{secondsToHHMMSS(timer)}</h2>
       <div className="buttons">
         <button onClick={handleStartTimer}>Start</button>
         <button onClick={handleStopTimer}>Stop</button>
