@@ -5,7 +5,7 @@ import GitHubActivity from './components/GitHubActivity';
 
 function App() {
   return (
-    <div className="app-container">
+    <>
       <div className="dailyFocus">
         <DailyFocus />
       </div>
@@ -15,7 +15,7 @@ function App() {
       <div className="activity">
         <GitHubActivity />
       </div>
-    </div>
+    </>
   );
 }
 

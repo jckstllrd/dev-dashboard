@@ -2,15 +2,27 @@
 f4e9cd as your text
 468189 as your accent — button, border, focus states
 9dbebb for subtle secondary elements */
+* {
+  box-sizing: border-box;
+}
 
-html,
-body {
-  min-height: 100vh;
-  min-width: 100vw;
-  margin: 0;
-  padding: 0;
-  background-color: #031926;
-  color: #f4e9cd;
+:root {
+  --color-bg: #031926;
+  --color-accent: #468189;
+  --color-accent-mid: #77aca2;
+  --color-accent-light: #9dbebb;
+  --color-text: #f4e9cd;
+
+  --text-sm: clamp(0.75rem, 1.5vw, 0.875rem);
+  --text-base: clamp(0.875rem, 2vw, 1rem);
+  --text-lg: clamp(1rem, 2.5vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 3vw, 1.75rem);
+  --text-hero: clamp(1.75rem, 5vw, 3rem);
+
+  --space-sm: clamp(0.5rem, 2vw, 1rem);
+  --space-md: clamp(1rem, 4vw, 2rem);
+  --space-lg: clamp(2rem, 6vw, 4rem);
+
   font-family:
     system-ui,
     -apple-system,
@@ -25,37 +37,55 @@ body {
     sans-serif;
 }
 
+html,
 body {
+  height: 100%;
+  margin: 0
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  height: 80vh
+  display: grid;
+  height: clamp(500px, 80%, 800px);
+  overflow: hidden;
+  width: clamp(500px, 80%, 1000px);
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr 5fr;
+  grid-template-areas: 'dailyFocus dailyFocus' 'pomodoro activity';
+  border: 1px solid var(--color-text);
 }
 
-.app-container {
-  height: 100%;
-  max-width: 80%;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-template-rows: 1fr 3fr;
-  grid-template-areas: 'dailyFocus dailyFocus' 'pomodoro activity';
+#root > * {
+  border: 1px solid var(--color-text);
 }
 
 .dailyFocus {
   grid-area: dailyFocus;
+  font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 .pomodoro {
   grid-area: pomodoro;
+  font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 .activity {
   grid-area: activity;
+  /* font-size: clamp(0.75rem, 1.5vw, 0.875rem); */
+  font-size: --space-sm;
+}
+
+@media (max-width: 500px) {
+  #root {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "dailyFocus" "pomodoro" "activity";
+  }
 }

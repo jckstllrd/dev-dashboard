@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../styles/GitHubActivity.css';
 
 const username = 'jckstllrd';
 const repo = 'dev-dashboard';

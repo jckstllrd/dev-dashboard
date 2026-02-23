@@ -20,22 +20,24 @@ export default function DailyFocus() {
 
   return (
     <>
-        <form action="" onSubmit={handleSubmit}>
-          <label htmlFor="dailyFocusValue">
-            Daily Focus:
-            <input
-              type="text"
-              name="dailyFocusValue"
-              id="dailyFocusValue"
-              placeholder="Learn React..."
-              value={dailyFocusValue}
-              onChange={(event) => setDailyFocusValue(event.target.value)}
-            />
-          </label>
-          <button type="submit">Set Focus</button>
-        </form>
+      <form className="dailyFocusForm" action="" onSubmit={handleSubmit}>
+        <label htmlFor="dailyFocusValue">
+          Daily Focus:
+          <input
+            type="text"
+            name="dailyFocusValue"
+            id="dailyFocusValue"
+            placeholder="Learn React..."
+            value={dailyFocusValue}
+            onChange={(event) => setDailyFocusValue(event.target.value)}
+          />
+        </label>
+        <button className="dailyFocusBtn btn" type="submit">
+          Set Focus
+        </button>
+      </form>
       <div>
-        <h1>{dailyFocus}</h1>
+        <h1 className="dailyFocusHero">{dailyFocus}</h1>
       </div>
     </>
   );

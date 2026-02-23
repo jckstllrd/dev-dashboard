@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import '../styles/PomodoroTimer.css';
 
 export default function PomodoroTimer() {
   const onePomodoro = 1500;
@@ -40,9 +41,11 @@ export default function PomodoroTimer() {
   return (
     <>
       <h1>{secondsToHHMMSS(timer)}</h1>
-      <button onClick={handleStartTimer}>Start</button>
-      <button onClick={handleStopTimer}>Stop</button>
-      <button onClick={handleResetTimer}>Reset</button>
+      <div className="buttons">
+        <button onClick={handleStartTimer}>Start</button>
+        <button onClick={handleStopTimer}>Stop</button>
+        <button onClick={handleResetTimer}>Reset</button>
+      </div>
     </>
   );
 }
