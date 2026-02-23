@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import DailyFocus from './components/DailyFocus';
 import PomodoroTimer from './components/PomodoroTimer';
 import GitHubActivity from './components/GitHubActivity';

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import '../styles/DailyFocus.css';
 
 export default function DailyFocus() {
   const [dailyFocusValue, setDailyFocusValue] = useState('');
@@ -19,7 +20,6 @@ export default function DailyFocus() {
 
   return (
     <>
-      <div>
         <form action="" onSubmit={handleSubmit}>
           <label htmlFor="dailyFocusValue">
             Daily Focus:
@@ -34,7 +34,6 @@ export default function DailyFocus() {
           </label>
           <button type="submit">Set Focus</button>
         </form>
-      </div>
       <div>
         <h1>{dailyFocus}</h1>
       </div>
