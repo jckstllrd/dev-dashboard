@@ -13,7 +13,8 @@ f4e9cd as your text
   --color-accent-light: #9dbebb;
   --color-text: #f4e9cd;
 
-  --text-sm: clamp(0.75rem, 1.5vw, 0.875rem);
+  --text-mobile: clamp(0.5rem, 1vw, 0.75rem);
+  --text-sm: clamp(0.6rem, 1.5vw, 0.875rem);
   --text-base: clamp(0.875rem, 2vw, 1rem);
   --text-lg: clamp(1rem, 2.5vw, 1.25rem);
   --text-xl: clamp(1.25rem, 3vw, 1.75rem);
@@ -22,6 +23,13 @@ f4e9cd as your text
   --space-sm: clamp(0.5rem, 2vw, 1rem);
   --space-md: clamp(1rem, 4vw, 2rem);
   --space-lg: clamp(2rem, 6vw, 4rem);
+
+  --btn-width: clamp(80px, 5vw, 10rem);
+  --btn-height: clamp(30px, 1.5vw, 5rem);
+
+  --focus-width: clamp(300px, 50vw, 30rem);
+  --focus-height: clamp(50px, 5vw, 10rem);
+
 
   font-family:
     system-ui,
@@ -40,52 +48,67 @@ f4e9cd as your text
 html,
 body {
   height: 100%;
-  margin: 0
+  margin: 0;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 #root {
   display: grid;
-  height: clamp(500px, 80%, 800px);
+  margin: auto;
+  height: clamp(300px, 80%, 800px);
   overflow: hidden;
-  width: clamp(500px, 80%, 1000px);
+  width: clamp(300px, 80%, 1000px);
   grid-template-columns: 3fr 2fr;
   grid-template-rows: 1fr 5fr;
   grid-template-areas: 'dailyFocus dailyFocus' 'pomodoro activity';
-  border: 1px solid var(--color-text);
+  background-color: var(--color-accent);
+  border-radius: 20px;
+  border: 2px solid var(--color-accent-light)
+  /* border: 1px solid var(--color-text); */
 }
 
-#root > * {
+/* #root > * {
   border: 1px solid var(--color-text);
+} */
+
+button {
+  border: none;
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  width: var(--btn-width);
+  height: var(--btn-height);
+  border-radius: 20px;
+  transition: box-shadow 0.1s;
+}
+
+button:hover {
+  box-shadow: 0 0 10px 0 var(--color-accent-light);
 }
 
 .dailyFocus {
   grid-area: dailyFocus;
-  font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 .pomodoro {
   grid-area: pomodoro;
-  font-size: clamp(0.875rem, 2vw, 1rem);
 }
 
 .activity {
   grid-area: activity;
-  /* font-size: clamp(0.75rem, 1.5vw, 0.875rem); */
-  font-size: --space-sm;
 }
 
 @media (max-width: 500px) {
   #root {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-areas: "dailyFocus" "pomodoro" "activity";
+    gap: 1.5rem;
+    grid-template-areas: 'dailyFocus' 'pomodoro' 'activity';
   }
 }
