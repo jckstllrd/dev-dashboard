@@ -37,7 +37,7 @@ export default function DailyFocus() {
         </button>
       </form>
       <div>
-        <h1 className="dailyFocusHero">{dailyFocus}</h1>
+        <h2 className="dailyFocusHero">{dailyFocus}</h2>
       </div>
     </>
   );
